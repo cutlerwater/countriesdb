@@ -30,7 +30,7 @@ const CountryDetails = ({ match }) => {
         });
     }
   }, [bordersISO]);
-  const tl = new Timeline();
+//   const tl = new Timeline();
   useEffect(() => {
     gsap.from('.imgDiv', 1, { opacity: 0 });
     gsap.from('.info,.Name', 1, {
