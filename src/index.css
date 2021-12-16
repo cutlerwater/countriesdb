@@ -1,13 +1,20 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Nunito Sans', sans-serif;
 }
+.buttonShadow {
+  box-shadow: 0 0 5px rgb(163, 159, 159);
+}
+.info {
+  @apply text-xl font-bold;
+}
+.spanStyle {
+  @apply font-normal;
+}
+.imgWidth {
+  max-width: 34.375rem;
+}
+@tailwind utilities;

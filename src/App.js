@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Header from './components/Header';
+import SearchFilter from './components/SearchFilter';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import CountryDetails from './components/CountryDetails';
 
 function App() {
+  const [countries, setCountries] = useState([]);
+  const getCountries = async (apiLink) => {
+    const res = await fetch(apiLink);
+    const data = await res.json();
+    setCountries(data);
+  };
+  useEffect(() => {
+    try {
+      getCountries('https://restcountries.com/v2/all');
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='app' className='App'>
+      <div className='bg-white text-gray-800 dark:text-gray-100  dark:bg-gray-800 h-screen'>
+        <Header />
+        <BrowserRouter>
+          <Switch>
+            <Route
+              path='/'
+              render={() => <SearchFilter countries={countries} />}
+              exact
+            />
+            <Route path='/:country' component={CountryDetails} />
+          </Switch>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
-
 export default App;
