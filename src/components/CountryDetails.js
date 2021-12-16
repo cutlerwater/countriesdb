@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { gsap } from 'gsap';
-import { Timeline } from 'gsap/gsap-core';
+// import { Timeline } from 'gsap/gsap-core';
 
 const CountryDetails = ({ match }) => {
   const [country, setCountry] = useState({ currencies: [{}], languages: [{}] });
